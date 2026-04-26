@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pbm_pr6/User.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -58,7 +59,7 @@ class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    final args = ModalRoute.of(context)!.settings.arguments;
+    final data = ModalRoute.of(context)!.settings.arguments as User;
 
     return Scaffold(
       appBar: AppBar(title: Text("Homepage")),
@@ -79,7 +80,11 @@ class home extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     Text(
-                      'Halo, Selamat Malam $args',
+                      'Halo, Selamat Malam ${data.email}',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    Text(
+                      'Password Kamu ${data.password}',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ],
